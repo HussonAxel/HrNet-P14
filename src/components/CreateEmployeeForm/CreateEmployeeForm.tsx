@@ -46,6 +46,7 @@ export default function CreateEmployeeForm() {
         )}
       />
       <button type='submit' onClick={form.handleSubmit}>Submit Button</button>
+      <button type='button' onClick={() => form.reset()}>Reset Button</button>
     </>
   );
 }
