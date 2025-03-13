@@ -15,7 +15,8 @@ export default function CreateEmployeeForm() {
       <div>CreateEmployeeForm</div>
       <form.Field
         validators={{
-          onSubmit: ({ value }) => {
+          onChangeAsyncDebounceMs: 500,
+          onChangeAsync: ({ value }) => {
             if (value.length < 3) {
               return "First Name must be at least 3 characters";
             }
@@ -41,7 +42,8 @@ export default function CreateEmployeeForm() {
       <form.Field
         name="lastName"
         validators={{
-          onSubmit: ({ value }) => {
+          onChangeAsyncDebounceMs: 500,
+          onChangeAsync: ({ value }) => {
             if (value.length < 3) {
               return "Last Name must be at least 3 characters";
             }
@@ -64,10 +66,7 @@ export default function CreateEmployeeForm() {
         )}
       />
       <button type="submit" onClick={form.handleSubmit}>
-        Submit Button
-      </button>
-      <button type="button" onClick={() => form.reset()}>
-        Reset Button
+        Create Employee
       </button>
     </>
   );
