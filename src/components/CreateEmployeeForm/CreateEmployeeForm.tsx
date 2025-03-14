@@ -49,7 +49,7 @@ export const CreateEmployeeForm = () => {
     },
   });
   return (
-    <Card className="w-[800px] m-auto">
+    <Card className="max-w-[800px] w-full m-auto">
       <CardHeader>
         <CardTitle className="text-4xl">Create a new employee</CardTitle>
         <CardDescription>
@@ -57,8 +57,7 @@ export const CreateEmployeeForm = () => {
             to="/employee-list"
             className="text-lg underline hover:font-semibold hover:text-gray-800 transition-all duration-300"
           >
-            {" "}
-            View employees list{" "}
+            View employees list
           </Link>
         </CardDescription>
       </CardHeader>
