@@ -30,8 +30,10 @@ import {
 } from "@/components/ui/popover";
 
 import { states, Department } from "@/lib/data";
+import useStore from "@/store/store";
 
 export const CreateEmployeeForm = () => {
+  console.log(useStore((state)=> state.form));
   const form = useForm({
     defaultValues: {
       firstName: "",
@@ -232,13 +234,7 @@ export const CreateEmployeeForm = () => {
               <CardTitle>Address</CardTitle>
             </CardHeader>
             <CardContent>
-              <form
-                className="flex flex-col gap-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }}
-              >
+              <div className="flex flex-col gap-4">
                 <form.Field
                   name="Street"
                   validators={{
@@ -319,7 +315,7 @@ export const CreateEmployeeForm = () => {
                           <SelectGroup>
                             {states.map((state) => {
                               return (
-                                <SelectItem value={state.name}>
+                                <SelectItem value={state.name} key={state.name}>
                                   {state.name}
                                 </SelectItem>
                               );
@@ -363,7 +359,7 @@ export const CreateEmployeeForm = () => {
                     </div>
                   )}
                 />
-              </form>
+              </div>
             </CardContent>
           </Card>
           <form.Field
@@ -387,7 +383,7 @@ export const CreateEmployeeForm = () => {
                     <SelectGroup>
                       {Department.map((Department) => {
                         return (
-                          <SelectItem value={Department.name}>
+                          <SelectItem value={Department.name} key={Department.name}>
                             {Department.name}
                           </SelectItem>
                         );
