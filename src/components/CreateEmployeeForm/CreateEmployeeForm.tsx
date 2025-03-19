@@ -29,7 +29,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { states, Department } from "@/lib/data";
+import { dataStates, Department } from "@/lib/data";
 import useStore from "@/store/store";
 
 export const CreateEmployeeForm = () => {
@@ -320,7 +320,7 @@ export const CreateEmployeeForm = () => {
                           className="max-h-[350px] overflow-y-auto"
                         >
                           <SelectGroup>
-                            {states.map((state) => {
+                            {dataStates.map((state) => {
                               return (
                                 <SelectItem value={state.name} key={state.name}>
                                   {state.name}
@@ -349,7 +349,7 @@ export const CreateEmployeeForm = () => {
                   }}
                   children={(field) => (
                     <div>
-                      <Label className="pb-2" htmlFor="CZipCodeity">
+                      <Label className="pb-2" htmlFor="ZipCode">
                         Zip Code
                       </Label>
                       <Input
