@@ -1,26 +1,22 @@
+// Updated store.js
 import { create } from "zustand";
 import { shared } from "use-broadcast-ts";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { FormActions, FormState } from "./store.types";
 
-export const initialForm = {
-  firstName: "",
-  lastName: "",
-  DateOfBirth: "",
-  StartDate: "",
-  Street: "",
-  City: "",
-  State: "",
-  ZipCode: "",
-  Department: "",
-};
+// Initialize with an empty array of form submissions
+const initialForms = [] as any[];
 
 const useStore = create<FormState & FormActions>()(
   shared(
     persist<FormState & FormActions>(
       (set) => ({
-        form: initialForm,
-        updateForm: (newForm) => set({ form: newForm }),
+        forms: initialForms,
+        addForm: (newForm) =>
+          set((state) => ({
+            forms: [...state.forms, newForm],
+          })),
+        resetForms: () => set({ forms: [] }),
       }),
       {
         name: "form-storage",

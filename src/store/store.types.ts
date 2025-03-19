@@ -1,17 +1,9 @@
+// store.types.ts
 export interface FormState {
-  form: {
-    firstName: string;
-    lastName: string;
-    DateOfBirth: string;
-    StartDate: string;
-    Street: string;
-    City: string;
-    State: string;
-    ZipCode: string;
-    Department: string;
-  };
+  forms: any[]; // Array of form submissions
 }
 
 export interface FormActions {
-  updateForm: (newForm: { firstName: string; lastName: string; DateOfBirth: string; StartDate: string; Street: string; City: string; State: string; ZipCode: string; Department: string; }) => void;
+  addForm: (newForm: any) => void;
+  resetForms: () => void;
 }

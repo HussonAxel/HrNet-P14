@@ -31,17 +31,26 @@ import {
 
 import { states, Department } from "@/lib/data";
 import useStore from "@/store/store";
-import { initialForm } from "@/store/store";
-
 
 export const CreateEmployeeForm = () => {
-  const updateForm = useStore((state) => state.updateForm);
+  const addForm = useStore((state) => state.addForm);
 
   const form = useForm({
-    defaultValues: initialForm,
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      DateOfBirth: "",
+      StartDate: "",
+      Street: "",
+      City: "",
+      State: "",
+      ZipCode: "",
+      Department: "",
+    },
     onSubmit: ({ value }) => {
-      updateForm(value); 
-      alert(JSON.stringify(value, null, 2));
+      addForm(value);
+      alert("Employee added successfully!");
+      form.reset();
     },
   });
   return (
