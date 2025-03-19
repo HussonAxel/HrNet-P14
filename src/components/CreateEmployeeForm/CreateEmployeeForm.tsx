@@ -21,7 +21,7 @@ import {
 import { useForm } from "@tanstack/react-form";
 import { Link } from "@tanstack/react-router";
 import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
+import CalendarSVG from "../ui/svg/calendar";
 import { cn } from "@/lib/utils";
 import {
   Popover,
@@ -155,7 +155,7 @@ export const CreateEmployeeForm = () => {
                       )}
                       onBlur={() => field.handleBlur()}
                     >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      <CalendarSVG className="mr-2 h-4 w-4" />
                       {field.state.value ? (
                         format(new Date(field.state.value), "PPP")
                       ) : (
@@ -206,7 +206,7 @@ export const CreateEmployeeForm = () => {
                       )}
                       onBlur={() => field.handleBlur()}
                     >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      <CalendarSVG className="mr-2 h-4 w-4" />
                       {field.state.value ? (
                         format(new Date(field.state.value), "PPP")
                       ) : (
