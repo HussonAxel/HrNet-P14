@@ -2,23 +2,23 @@ import { create } from "zustand";
 import { shared } from "use-broadcast-ts";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type {
-  BearState,
-  BearActions,
-  BearStatePopulation,
+  FormActions,
+  FormState,
 } from "./store.types";
 
-const useStore = create<BearStatePopulation>()(
+const initialForm = [
+    {firstName: "", lastName: "", DateOfBirth: "", StartDate: "", Street: "", City: "", State: "", ZipCode: "", Department: "" }
+]
+
+const useStore = create<FormState & FormActions>()(
   shared(
-    persist<BearState & BearActions>(
-      (set): BearState & BearActions => ({
-        bears: 0,
-        increaseBearPopulation: () =>
-          set((state) => ({ bears: state.bears + 1 })),
-        lowerBearPopulation: () => set((state) => ({ bears: state.bears - 1 })),
-        resetBearPopulation: () => set(() => ({ bears: 0 })),
+    persist<FormState & FormActions>(
+      (set) => ({
+        form: initialForm,
+        updateForm: (newForm) => set({ form: newForm }),
       }),
       {
-        name: "bear-storage",
+        name: "form-storage",
         storage: createJSONStorage(() => sessionStorage),
       }
     )

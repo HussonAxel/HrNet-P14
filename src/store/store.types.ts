@@ -1,16 +1,17 @@
-export interface BearStatePopulation {
-  bears: number;
-  increaseBearPopulation(): void;
-  lowerBearPopulation(): void;
-  resetBearPopulation(): void;
+export interface FormState {
+  form: {
+    firstName: string;
+    lastName: string;
+    DateOfBirth: string;
+    StartDate: string;
+    Street: string;
+    City: string;
+    State: string;
+    ZipCode: string;
+    Department: string;
+  }[];
 }
 
-export interface BearState {
-  bears: number;
-}
-
-export interface BearActions {
-  increaseBearPopulation: () => void;
-  lowerBearPopulation: () => void;
-  resetBearPopulation: () => void;
+export interface FormActions {
+  updateForm: (newForm: { firstName: string; lastName: string; DateOfBirth: string; StartDate: string; Street: string; City: string; State: string; ZipCode: string; Department: string; }[]) => void;
 }
