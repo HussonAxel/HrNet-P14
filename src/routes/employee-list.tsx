@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { columns } from "@/components/CurrentEmployeeTable/columns";
 import { DataTable } from "@/components/CurrentEmployeeTable/data-table";
 import type { fakeEmployeeDataType } from "@/components/CurrentEmployeeTable/fakeEmployeeData";
@@ -28,6 +28,7 @@ function RouteComponent() {
   return (
     <div className="container mx-auto py-10">
       <DataTable columns={columns} data={data} />
+      <Link to="/">Home</Link>
     </div>
   );
 }

@@ -34,8 +34,8 @@ import { states, Department } from "@/lib/data";
 export const CreateEmployeeForm = () => {
   const form = useForm({
     defaultValues: {
-      username: "",
-      password: "",
+      firstName: "",
+      lastName: "",
       dateOfBirth: "",
       StartDate: "",
       Street: "",
@@ -70,19 +70,19 @@ export const CreateEmployeeForm = () => {
           }}
         >
           <form.Field
-            name="username"
+            name="firstName"
             validators={{
               onBlurAsync: ({ value }) =>
                 value.length < 3 &&
-                "Username must be at least 3 characters long",
+                "firstName must be at least 3 characters long",
             }}
             children={(field) => (
               <div>
-                <Label className="pb-2" htmlFor="username">
-                  Username
+                <Label className="pb-2" htmlFor="firstName">
+                  First Name
                 </Label>
                 <Input
-                  id="username"
+                  id="firstName"
                   type="text"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
@@ -97,34 +97,34 @@ export const CreateEmployeeForm = () => {
             )}
           />
           <form.Field
-            name="password"
+            name="lastName"
             validators={{
               onBlurAsync: ({ value }) => {
                 if (value.length < 6) {
-                  return "Password must be at least 6 characters long";
+                  return "lastName must be at least 6 characters long";
                 }
 
                 if (!/[A-Z]/.test(value)) {
-                  return "Password must contain at least one uppercase letter";
+                  return "lastName must contain at least one uppercase letter";
                 }
 
                 if (!/[a-z]/.test(value)) {
-                  return "Password must contain at least one lowercase letter";
+                  return "lastName must contain at least one lowercase letter";
                 }
 
                 if (!/[0-9]/.test(value)) {
-                  return "Password must contain at least one number";
+                  return "lastName must contain at least one number";
                 }
               },
             }}
             children={(field) => (
               <div>
-                <Label className="pb-2" htmlFor="password">
-                  Password
+                <Label className="pb-2" htmlFor="lastName">
+                  Last Name
                 </Label>
                 <Input
-                  id="password"
-                  type="password"
+                  id="lastName"
+                  type="text"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
                   onBlur={() => field.handleBlur()}
