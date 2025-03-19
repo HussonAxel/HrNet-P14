@@ -49,7 +49,7 @@ export const CreateEmployeeForm = () => {
     },
   });
   return (
-    <Card className="max-w-[800px] w-full m-auto">
+    <Card className="max-w-[800px] w-full m-auto h-fit">
       <CardHeader>
         <CardTitle className="text-4xl">Create a new employee</CardTitle>
         <CardDescription>
@@ -73,8 +73,8 @@ export const CreateEmployeeForm = () => {
             name="firstName"
             validators={{
               onBlurAsync: ({ value }) =>
-                value.length < 3 &&
-                "firstName must be at least 3 characters long",
+                value.length < 2 &&
+                "first Name must be at least 2 characters long",
             }}
             children={(field) => (
               <div>
@@ -100,20 +100,8 @@ export const CreateEmployeeForm = () => {
             name="lastName"
             validators={{
               onBlurAsync: ({ value }) => {
-                if (value.length < 6) {
-                  return "lastName must be at least 6 characters long";
-                }
-
-                if (!/[A-Z]/.test(value)) {
-                  return "lastName must contain at least one uppercase letter";
-                }
-
-                if (!/[a-z]/.test(value)) {
-                  return "lastName must contain at least one lowercase letter";
-                }
-
-                if (!/[0-9]/.test(value)) {
-                  return "lastName must contain at least one number";
+                if (value.length < 2) {
+                  return "last name must be at least 2 characters long";
                 }
               },
             }}
@@ -256,7 +244,7 @@ export const CreateEmployeeForm = () => {
                   validators={{
                     onBlurAsync: ({ value }) =>
                       value.length < 3 &&
-                      "Username must be at least 3 characters long",
+                      "Street must be at least 3 characters long",
                   }}
                   children={(field) => (
                     <div>
@@ -284,7 +272,7 @@ export const CreateEmployeeForm = () => {
                   validators={{
                     onBlurAsync: ({ value }) =>
                       value.length < 3 &&
-                      "Username must be at least 3 characters long",
+                      "City must be at least 3 characters long",
                   }}
                   children={(field) => (
                     <div>
@@ -351,9 +339,8 @@ export const CreateEmployeeForm = () => {
                 <form.Field
                   name="ZipCode"
                   validators={{
-                    onBlurAsync: ({ value }) =>
-                      value.length < 3 &&
-                      "Username must be at least 3 characters long",
+                    onBlurAsync: ({ value }) => 
+                      value && value.length < 3 && "Zip Code must be at least 3 numbers long",
                   }}
                   children={(field) => (
                     <div>

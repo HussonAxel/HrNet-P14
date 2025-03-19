@@ -43,7 +43,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <CaretSVG className="size-4 opacity-50 rotate-90" />
+        <CaretSVG className="size-4 opacity-50 -rotate-90" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -113,7 +113,7 @@ function SelectItem({
     >
       <span className="absolute right-2 flex size-3.5 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <CheckSVG className="size-16" />
+          <CheckSVG className="size-4" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -147,7 +147,7 @@ function SelectScrollUpButton({
       )}
       {...props}
     >
-      <CaretSVG className="size-4 rotate-90" />
+      <CaretSVG className="size-4 rotate-180" />
     </SelectPrimitive.ScrollUpButton>
   );
 }
@@ -165,7 +165,7 @@ function SelectScrollDownButton({
       )}
       {...props}
     >
-      <CaretSVG className="size-4 rotate-90" />
+      <CaretSVG className="size-4" />
     </SelectPrimitive.ScrollDownButton>
   );
 }
