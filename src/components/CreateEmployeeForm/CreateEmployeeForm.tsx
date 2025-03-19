@@ -31,23 +31,17 @@ import {
 
 import { states, Department } from "@/lib/data";
 import useStore from "@/store/store";
+import { initialForm } from "@/store/store";
+
 
 export const CreateEmployeeForm = () => {
-  console.log(useStore((state)=> state.form));
+  const updateForm = useStore((state) => state.updateForm);
+
   const form = useForm({
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      dateOfBirth: "",
-      StartDate: "",
-      Street: "",
-      City: "",
-      State: "",
-      ZipCode: "",
-      Department: "",
-    },
+    defaultValues: initialForm,
     onSubmit: ({ value }) => {
-      console.log(value);
+      updateForm(value); 
+      alert(JSON.stringify(value, null, 2));
     },
   });
   return (
@@ -128,7 +122,7 @@ export const CreateEmployeeForm = () => {
             )}
           />
           <form.Field
-            name="dateOfBirth"
+            name="DateOfBirth"
             children={(field) => (
               <div className="space-y-2">
                 <Label className="pb-2" htmlFor="dateOfBirth">
@@ -295,14 +289,18 @@ export const CreateEmployeeForm = () => {
                   name="State"
                   validators={{
                     onBlurAsync: ({ value }) =>
-                      value && "You need to select a state",
+                      !value && "You need to select a state",
                   }}
                   children={(field) => (
                     <div>
                       <Label className="pb-2" htmlFor="State">
                         State
                       </Label>
-                      <Select>
+                      <Select
+                        value={field.state.value}
+                        onValueChange={(value) => field.handleChange(value)}
+                        onOpenChange={() => field.handleBlur()}
+                      >
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Select a state" />
                         </SelectTrigger>
@@ -335,8 +333,10 @@ export const CreateEmployeeForm = () => {
                 <form.Field
                   name="ZipCode"
                   validators={{
-                    onBlurAsync: ({ value }) => 
-                      value && value.length < 3 && "Zip Code must be at least 3 numbers long",
+                    onBlurAsync: ({ value }) =>
+                      value &&
+                      value.length < 3 &&
+                      "Zip Code must be at least 3 numbers long",
                   }}
                   children={(field) => (
                     <div>
@@ -365,14 +365,19 @@ export const CreateEmployeeForm = () => {
           <form.Field
             name="Department"
             validators={{
-              onBlurAsync: ({ value }) => value && "You need to select a state",
+              onBlurAsync: ({ value }) =>
+                !value && "You need to select a department",
             }}
             children={(field) => (
               <div>
                 <Label className="pb-2" htmlFor="Department">
                   Department
                 </Label>
-                <Select>
+                <Select
+                  value={field.state.value}
+                  onValueChange={(value) => field.handleChange(value)}
+                  onOpenChange={() => field.handleBlur()}
+                >
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select a Department" />
                   </SelectTrigger>
@@ -383,7 +388,10 @@ export const CreateEmployeeForm = () => {
                     <SelectGroup>
                       {Department.map((Department) => {
                         return (
-                          <SelectItem value={Department.name} key={Department.name}>
+                          <SelectItem
+                            value={Department.name}
+                            key={Department.name}
+                          >
                             {Department.name}
                           </SelectItem>
                         );
