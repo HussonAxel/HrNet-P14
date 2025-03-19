@@ -382,8 +382,6 @@ export const CreateEmployeeForm = () => {
                   </SelectTrigger>
                   <SelectContent
                     side="bottom"
-                    avoidCollisions={false}
-                    position="popper"
                     className="max-h-[200px] overflow-y-auto"
                   >
                     <SelectGroup>

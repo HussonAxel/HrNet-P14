@@ -6,7 +6,7 @@ export const Route = createFileRoute("/")({
 
 function App() {
   return (
-    <section className="w-1/2 m-auto text-center">
+    <section className="w-1/2 m-auto text-center py-8">
       <CreateEmployeeForm />
     </section>
   );
