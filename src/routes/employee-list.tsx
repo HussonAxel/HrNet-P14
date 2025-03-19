@@ -1,33 +1,35 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { columns } from "@/components/CurrentEmployeeTable/columns";
 import { DataTable } from "@/components/CurrentEmployeeTable/data-table";
-import type { fakeEmployeeDataType } from "@/components/CurrentEmployeeTable/fakeEmployeeData";
-import { fakeEmployeeData } from "@/components/CurrentEmployeeTable/fakeEmployeeData";
-import { useState, useEffect } from "react";
+import { dataStates } from "@/lib/data";
+import useStore from "@/store/store";
 
 export const Route = createFileRoute("/employee-list")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const [data, setData] = useState<fakeEmployeeDataType[]>([]);
+  const employeeDataStore = useStore((state) => state.forms);
 
-  useEffect(() => {
-    const loadData = async () => {
-      const employeeData = await getData();
-      setData(employeeData);
-    };
+  const employeeDataWithAbbreviations = employeeDataStore.map((employee) => {
+    const updatedEmployee = { ...employee };
 
-    loadData();
-  }, []);
+    if (updatedEmployee.State) {
+      const stateObject = dataStates.find(
+        (state) => state.name === updatedEmployee.State
+      );
 
-  async function getData(): Promise<fakeEmployeeDataType[]> {
-    return fakeEmployeeData;
-  }
+      if (stateObject) {
+        updatedEmployee.State = stateObject.abbreviation;
+      }
+    }
+
+    return updatedEmployee;
+  });
 
   return (
     <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
+      <DataTable columns={columns} data={employeeDataWithAbbreviations} />
       <Link to="/">Home</Link>
     </div>
   );

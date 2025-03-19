@@ -1,9 +1,18 @@
-"use client";
-
 import type { ColumnDef } from "@tanstack/react-table";
-import type { fakeEmployeeDataType } from "./fakeEmployeeData";
 
-export const columns: ColumnDef<fakeEmployeeDataType>[] = [
+type EmployeeDataType = {
+  firstName: string;
+  lastName: string;
+  startDate: string;
+  department: string;
+  dateOfBirth: string;
+  street: string;
+  city: string;
+  state: string;
+  zipCode: string;
+};
+
+export const columns: ColumnDef<EmployeeDataType>[] = [
   {
     accessorKey: "firstName",
     header: "First Name",
@@ -13,31 +22,31 @@ export const columns: ColumnDef<fakeEmployeeDataType>[] = [
     header: "Last Name",
   },
   {
-    accessorKey: "startDate",
+    accessorKey: "StartDate",
     header: "Start Date",
   },
   {
-    accessorKey: "department",
+    accessorKey: "Department",
     header: "Department",
   },
   {
-    accessorKey: "dateOfBirth",
+    accessorKey: "DateOfBirth",
     header: "Date of Birth",
   },
   {
-    accessorKey: "street",
+    accessorKey: "Street",
     header: "Street",
   },
   {
-    accessorKey: "city",
+    accessorKey: "City",
     header: "City",
   },
   {
-    accessorKey: "state",
+    accessorKey: "State",
     header: "State",
   },
   {
-    accessorKey: "zipCode",
+    accessorKey: "ZipCode",
     header: "Zip Code",
   },
 ];
