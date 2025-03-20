@@ -322,7 +322,7 @@ export const CreateEmployeeForm = () => {
                           <SelectGroup>
                             {dataStates.map((state) => {
                               return (
-                                <SelectItem value={state.name} key={state.name}>
+                                <SelectItem value={state.abbreviation} key={state.name}>
                                   {state.name}
                                 </SelectItem>
                               );
