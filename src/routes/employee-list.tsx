@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { columns } from "@/components/CurrentEmployeeTable/columns";
 import { DataTable } from "@/components/CurrentEmployeeTable/data-table";
 import useStore from "@/store/store";
@@ -15,7 +15,6 @@ function RouteComponent() {
   const resetForms = useStore((state) => state.resetForms);
 
   useEffect(() => {
-    // Reset existing forms and add 50 fake employees
     resetForms();
     const fakeEmployees = generateFakeEmployees(50);
     fakeEmployees.forEach((employee) => addForm(employee));
@@ -24,8 +23,6 @@ function RouteComponent() {
   return (
     <div className="container mx-auto py-10">
       <DataTable columns={columns} data={employeeDataStore} />
-
-      <Link to="/">Home</Link>
     </div>
   );
 }
