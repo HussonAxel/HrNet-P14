@@ -9,6 +9,9 @@ export const Route = createFileRoute("/employee-list")({
   component: RouteComponent,
 });
 
+import { Button } from "hrnet-modal-p14";
+
+
 function RouteComponent() {
   const employeeDataStore = useStore((state) => state.forms);
   const addForm = useStore((state) => state.addForm);
@@ -23,6 +26,8 @@ function RouteComponent() {
   return (
     <div className="container mx-auto py-10">
       <DataTable columns={columns} data={employeeDataStore} />
+      <Button variant="primary" className="py-8" children/> 
+      <Button variant="secondary" className="p-4 bg-red-500 border-4">Add Employee</Button> 
     </div>
   );
 }
