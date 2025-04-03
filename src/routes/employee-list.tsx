@@ -26,7 +26,6 @@ function RouteComponent() {
   return (
     <div className="container mx-auto py-10">
       <DataTable columns={columns} data={employeeDataStore} />
-      <Button variant="primary" className="py-8" children/> 
       <Button variant="secondary" className="p-4 bg-red-500 border-4">Add Employee</Button> 
     </div>
   );
