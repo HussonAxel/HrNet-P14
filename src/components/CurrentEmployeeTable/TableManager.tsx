@@ -1,4 +1,3 @@
-import React from 'react';
 import { Input } from '../ui/input';
 import type { Table } from '@tanstack/react-table';
 
@@ -7,15 +6,13 @@ interface TableManagerProps<TData> {
 }
 
 const TableManager = <TData,>({ table }: TableManagerProps<TData>) => {
-      const [globalFilter, setGlobalFilter] = React.useState("");
-
   return (
     <div className="flex flex-row-reverse justify-between mx-8">
       <div className="flex items-center py-4 w-1/2">
         <Input
           placeholder="Search all columns..."
-          value={globalFilter ?? ""}
-          onChange={(event) => setGlobalFilter(String(event.target.value))}
+          value={table.getState().globalFilter ?? ""}
+          onChange={(event) => table.setGlobalFilter(String(event.target.value))}
         />
       </div>
       <div className="flex items-center gap-2">
