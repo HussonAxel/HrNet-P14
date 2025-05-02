@@ -58,21 +58,23 @@ export const CreateEmployeeForm = () => {
   });
   return (
     <>
-      <Card className="max-w-[800px] w-full m-auto h-fit">
-        <CardHeader>
-          <CardTitle className="text-4xl">Create a new employee</CardTitle>
+      <Card className="max-w-[800px] w-full m-auto h-fit p-2 sm:p-4 md:p-6">
+        <CardHeader className="space-y-2 sm:space-y-4">
+          <CardTitle className="text-2xl sm:text-3xl md:text-4xl">
+            Create a new employee
+          </CardTitle>
           <CardDescription>
             <Link
               to="/employee-list"
-              className="text-lg underline hover:font-semibold hover:text-gray-800 transition-all duration-300"
+              className="text-base sm:text-lg underline hover:font-semibold hover:text-gray-800 transition-all duration-300"
             >
               View employees list
             </Link>
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="px-2 sm:px-4 md:px-6">
           <form
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-3 sm:gap-4"
             onSubmit={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -249,12 +251,12 @@ export const CreateEmployeeForm = () => {
                 </div>
               )}
             />
-            <Card className="my-4">
-              <CardHeader>
-                <CardTitle>Address</CardTitle>
+            <Card className="my-2 sm:my-4">
+              <CardHeader className="p-3 sm:p-4">
+                <CardTitle className="text-lg sm:text-xl">Address</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="flex flex-col gap-4">
+              <CardContent className="p-3 sm:p-4">
+                <div className="flex flex-col gap-3 sm:gap-4">
                   <form.Field
                     name="Street"
                     validators={{
@@ -446,11 +448,17 @@ export const CreateEmployeeForm = () => {
             </Modal>
           </form>
         </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button variant="outline" onClick={() => form.reset()}>
+        <CardFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between p-3 sm:p-4">
+          <Button
+            variant="outline"
+            onClick={() => form.reset()}
+            className="w-full sm:w-auto"
+          >
             Reset
           </Button>
-          <Button onClick={form.handleSubmit}>Create employee</Button>
+          <Button onClick={form.handleSubmit} className="w-full sm:w-auto">
+            Create employee
+          </Button>
         </CardFooter>
       </Card>
     </>
