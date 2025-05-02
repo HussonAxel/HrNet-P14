@@ -330,8 +330,12 @@ export const CreateEmployeeForm = () => {
                           value={field.state.value}
                           onValueChange={(value) => field.handleChange(value)}
                           onOpenChange={() => field.handleBlur()}
+                          aria-label="Select a state"
                         >
-                          <SelectTrigger className="w-full">
+                          <SelectTrigger
+                            className="w-full"
+                            aria-label="Select state"
+                          >
                             <SelectValue placeholder="Select a state" />
                           </SelectTrigger>
                           <SelectContent
@@ -346,6 +350,7 @@ export const CreateEmployeeForm = () => {
                                   <SelectItem
                                     value={state.abbreviation}
                                     key={state.name}
+                                    aria-label={state.name}
                                   >
                                     {state.name}
                                   </SelectItem>
@@ -411,8 +416,12 @@ export const CreateEmployeeForm = () => {
                     value={field.state.value}
                     onValueChange={(value) => field.handleChange(value)}
                     onOpenChange={() => field.handleBlur()}
+                    aria-label="Select a department"
                   >
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger
+                      className="w-full"
+                      aria-label="Select department"
+                    >
                       <SelectValue placeholder="Select a Department" />
                     </SelectTrigger>
                     <SelectContent
