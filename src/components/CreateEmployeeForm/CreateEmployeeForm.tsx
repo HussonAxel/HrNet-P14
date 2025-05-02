@@ -54,6 +54,7 @@ export const CreateEmployeeForm = () => {
     onSubmit: ({ value }) => {
       addForm(value);
       setModalShow(true);
+      form.reset();
     },
   });
   return (
