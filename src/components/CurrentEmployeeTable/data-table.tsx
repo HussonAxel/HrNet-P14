@@ -95,6 +95,12 @@ export function DataTable<TData, TValue>({
                                 size="sm"
                                 className="h-8 w-8 p-0"
                                 onClick={header.column.getToggleSortingHandler()}
+                                aria-label={`Sort by ${
+                                  typeof header.column.columnDef.header ===
+                                  "string"
+                                    ? header.column.columnDef.header
+                                    : "column"
+                                }`}
                               >
                                 {header.column.getIsSorted() === "asc" ? (
                                   <ArrowUp className="h-4 w-4" />
