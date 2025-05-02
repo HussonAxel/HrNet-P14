@@ -29,8 +29,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { Modal } from "hrnet-modal-p14";
-import { Dialog } from "hrnet-modal-p14";
+import { Modal, ModalContent } from "hrnet-modal-p14";
 
 import { dataStates, Department } from "@/lib/data";
 import useStore from "@/store/store";
@@ -375,7 +374,8 @@ export const CreateEmployeeForm = () => {
                         </Label>
                         <Input
                           id="ZipCode"
-                          type="number"
+                          pattern="[0-9]*"
+                          type="text"
                           value={field.state.value}
                           onChange={(e) => field.handleChange(e.target.value)}
                           onBlur={() => field.handleBlur()}
@@ -437,18 +437,13 @@ export const CreateEmployeeForm = () => {
                 </div>
               )}
             />
-            {modalShow && (
-              <>
-                <Modal />
-                <Dialog buttonFunction={() => setModalShow(false)}>
-                  <div className="space-y-2">
-                    <h3 className="font-semibold text-lg">
-                      Employee Successfully Created!
-                    </h3>
-                  </div>
-                </Dialog>
-              </>
-            )}
+            <Modal isOpen={modalShow} onClose={() => setModalShow(false)}>
+              <ModalContent
+                title="Employee created ! a new xcqxcqsdif"
+                description="A new employee has been successfully created. Welcome to the team !"
+                closeButtonText="Close"
+              />
+            </Modal>
           </form>
         </CardContent>
         <CardFooter className="flex justify-between">

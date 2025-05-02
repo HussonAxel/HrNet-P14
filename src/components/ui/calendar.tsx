@@ -1,5 +1,5 @@
 import * as React from "react"
-import CaretSVG from "./svg/caret"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { DayPicker } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
@@ -59,15 +59,15 @@ function Calendar({
       }}
       components={{
         IconLeft: ({ className, ...props }) => (
-          <CaretSVG className={cn("size-4 rotate-90", className)} {...props} />
+          <ChevronLeft className={cn("size-4", className)} {...props} />
         ),
         IconRight: ({ className, ...props }) => (
-          <CaretSVG className={cn("size-4 -rotate-90", className)} {...props} />
+          <ChevronRight className={cn("size-4", className)} {...props} />
         ),
       }}
       {...props}
     />
-  );
+  )
 }
 
 export { Calendar }
