@@ -34,6 +34,7 @@ import { Modal, ModalContent } from "hrnet-modal-p14";
 import { dataStates, Department } from "@/lib/data";
 import useStore from "@/store/store";
 import { useState } from "react";
+import { XIcon } from "lucide-react";
 
 export const CreateEmployeeForm = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -442,9 +443,9 @@ export const CreateEmployeeForm = () => {
             />
             <Modal isOpen={modalShow} onClose={() => setModalShow(false)}>
               <ModalContent
-                title="Employee created ! a new xcqxcqsdif"
+                title="Employee created ! "
                 description="A new employee has been successfully created. Welcome to the team !"
-                closeButtonText="Close"
+                closeButtonText={<XIcon />}
               />
             </Modal>
           </form>
