@@ -1,5 +1,5 @@
-import { Input } from '../ui/input';
-import type { Table } from '@tanstack/react-table';
+import { Input } from "../ui/input";
+import type { Table } from "@tanstack/react-table";
 
 interface TableManagerProps<TData> {
   table: Table<TData>;
@@ -7,15 +7,17 @@ interface TableManagerProps<TData> {
 
 const TableManager = <TData,>({ table }: TableManagerProps<TData>) => {
   return (
-    <div className="flex flex-row-reverse justify-between mx-8">
-      <div className="flex items-center py-4 w-1/2">
+    <div className="flex flex-col sm:flex-row-reverse sm:justify-between gap-2 sm:gap-0 px-2 sm:mx-8 overflow-x-auto">
+      <div className="flex items-center py-2 sm:py-4 w-full sm:w-1/2">
         <Input
           placeholder="Search all columns..."
           value={table.getState().globalFilter ?? ""}
-          onChange={(event) => table.setGlobalFilter(String(event.target.value))}
+          onChange={(event) =>
+            table.setGlobalFilter(String(event.target.value))
+          }
         />
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
         <button
           className="border rounded p-1"
           onClick={() => table.setPageIndex(0)}
@@ -80,6 +82,6 @@ const TableManager = <TData,>({ table }: TableManagerProps<TData>) => {
       </div>
     </div>
   );
-}
+};
 
-export default TableManager
+export default TableManager;
