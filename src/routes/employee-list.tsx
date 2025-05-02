@@ -7,7 +7,7 @@ export const Route = createFileRoute("/employee-list")({
   component: RouteComponent,
 });
 
-function RouteComponent() {
+export function RouteComponent() {
   const employeeDataStore = useStore((state) => state.forms);
 
   return (
