@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { columns } from "@/components/CurrentEmployeeTable/columns";
 import { DataTable } from "@/components/CurrentEmployeeTable/data-table";
+// import { fakeData } from "@/data/fakeEmployeeData";
 import useStore from "@/store/store";
 
 export const Route = createFileRoute("/employee-list")({
