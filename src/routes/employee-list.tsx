@@ -14,8 +14,8 @@ export function RouteComponent() {
   return (
     <>
       <div className="container mx-auto py-10">
-        <DataTable columns={columns} data={employeeDataStore} />
-        {/* <DataTable columns={columns} data={fakeData} /> */}
+        {/* <DataTable columns={columns} data={employeeDataStore} /> */}
+        <DataTable columns={columns} data={fakeData} />
       </div>
     </>
   );
