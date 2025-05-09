@@ -1,4 +1,104 @@
-Welcome to your new TanStack app! 
+# HRnet - Conversion React
+
+## Contexte du Projet
+
+HRnet est une application web interne de WealthHealth, utilisée pour gérer les dossiers des employés. Ce projet consiste en la conversion de l'application existante, basée sur jQuery, vers une architecture moderne utilisant React.
+
+## Objectifs
+
+- Convertir l'application HRnet en React
+- Remplacer les plugins jQuery par des composants React modernes
+- Améliorer les performances et la maintenabilité du code
+- Assurer une expérience utilisateur optimale
+
+## Technologies Utilisées
+
+- React
+- TypeScript
+- TanStack Router
+- shadcn/ui
+- date-fns
+- Zustand (gestion d'état)
+
+## Fonctionnalités Principales
+
+### Formulaire de Création d'Employé
+
+- Validation des champs en temps réel
+- Sélecteurs de date modernes
+- Menus déroulants optimisés
+- Gestion des adresses
+- Notifications modales
+
+### Liste des Employés
+
+- Affichage des données en tableau
+- Filtrage et tri
+- Interface responsive
+
+## Architecture
+
+L'application suit une architecture moderne basée sur :
+
+- Composants fonctionnels React
+- Gestion d'état avec Zustand
+- Routing avec TanStack Router
+- Composants UI réutilisables avec shadcn/ui
+
+## Performance
+
+Des tests de performance ont été réalisés avec Lighthouse pour comparer :
+
+- Temps de chargement
+- Performance générale
+- Accessibilité
+- Bonnes pratiques
+
+## Installation
+
+```bash
+# Cloner le repository
+git clone [URL_DU_REPO]
+
+# Installer les dépendances
+pnpm install
+
+# Lancer l'application en mode développement
+pnpm dev
+
+# Construire l'application
+pnpm build
+```
+
+## Structure du Projet
+
+```
+src/
+  ├── components/     # Composants React
+  ├── lib/           # Utilitaires et constantes
+  ├── store/         # Gestion d'état
+  └── routes/        # Configuration des routes
+```
+
+## Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à :
+
+1. Fork le projet
+2. Créer une branche pour votre fonctionnalité
+3. Commiter vos changements
+4. Pousser vers la branche
+5. Ouvrir une Pull Request
+
+## Licence
+
+Ce projet est sous licence MIT.
+
+## Contact
+
+Pour toute question ou suggestion, n'hésitez pas à ouvrir une issue sur GitHub.
+
+Welcome to your new TanStack app!
 
 # Getting Started
 
@@ -6,7 +106,7 @@ To run this application:
 
 ```bash
 pnpm install
-pnpm start  
+pnpm start
 ```
 
 # Building For Production
@@ -29,9 +129,6 @@ pnpm test
 
 This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
 
-
-
-
 ## Shadcn
 
 Add components using the canary version of [Shadcn](https://ui.shadcn.com/).
@@ -40,9 +137,8 @@ Add components using the canary version of [Shadcn](https://ui.shadcn.com/).
 pnpx shadcn@canary add button
 ```
 
-
-
 ## Routing
+
 This project uses [TanStack Router](https://tanstack.com/router). The initial setup is a file based router. Which means that the routes are managed as files in `src/routes`.
 
 ### Adding A Route
@@ -78,8 +174,8 @@ In the File Based Routing setup the layout is located in `src/routes/__root.tsx`
 Here is an example layout that includes a header:
 
 ```tsx
-import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import { Link } from "@tanstack/react-router";
 
@@ -96,13 +192,12 @@ export const Route = createRootRoute({
       <TanStackRouterDevtools />
     </>
   ),
-})
+});
 ```
 
 The `<TanStackRouterDevtools />` component is not required so you can remove it if you don't want it in your layout.
 
 More information on layouts can be found in the [Layouts documentation](hthttps://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
 
 ## Data Fetching
 

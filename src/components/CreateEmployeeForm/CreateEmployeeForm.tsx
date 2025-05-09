@@ -44,13 +44,13 @@ export const CreateEmployeeForm = () => {
     defaultValues: {
       firstName: "",
       lastName: "",
-      DateOfBirth: "",
-      StartDate: "",
-      Street: "",
-      City: "",
-      State: "",
-      ZipCode: "",
-      Department: "",
+      dateOfBirth: "",
+      startDate: "",
+      street: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      department: "",
     },
     onSubmit: ({ value }) => {
       addForm(value);
@@ -139,7 +139,7 @@ export const CreateEmployeeForm = () => {
               )}
             />
             <form.Field
-              name="DateOfBirth"
+              name="dateOfBirth"
               validators={{
                 onChange: ({ value }) => {
                   if (!value) {
@@ -196,7 +196,7 @@ export const CreateEmployeeForm = () => {
               )}
             />
             <form.Field
-              name="StartDate"
+              name="startDate"
               validators={{
                 onChange: ({ value }) => {
                   if (!value) {
@@ -206,13 +206,13 @@ export const CreateEmployeeForm = () => {
               }}
               children={(field) => (
                 <div className="space-y-2">
-                  <Label className="pb-2" htmlFor="StartDate">
+                  <Label className="pb-2" htmlFor="startDate">
                     Start Date
                   </Label>
                   <Popover>
                     <PopoverTrigger asChild>
                       <Button
-                        id="StartDate"
+                        id="startDate"
                         variant={"outline"}
                         className={cn(
                           "w-full justify-start text-left font-normal",
@@ -260,7 +260,7 @@ export const CreateEmployeeForm = () => {
               <CardContent className="p-3 sm:p-4">
                 <div className="flex flex-col gap-3 sm:gap-4">
                   <form.Field
-                    name="Street"
+                    name="street"
                     validators={{
                       onChange: ({ value }) =>
                         value.length < 3 &&
@@ -268,11 +268,11 @@ export const CreateEmployeeForm = () => {
                     }}
                     children={(field) => (
                       <div>
-                        <Label className="pb-2" htmlFor="Street">
+                        <Label className="pb-2" htmlFor="street">
                           Street
                         </Label>
                         <Input
-                          id="Street"
+                          id="street"
                           type="text"
                           value={field.state.value}
                           onChange={(e) => field.handleChange(e.target.value)}
@@ -288,7 +288,7 @@ export const CreateEmployeeForm = () => {
                     )}
                   />
                   <form.Field
-                    name="City"
+                    name="city"
                     validators={{
                       onChange: ({ value }) =>
                         value.length < 3 &&
@@ -296,11 +296,11 @@ export const CreateEmployeeForm = () => {
                     }}
                     children={(field) => (
                       <div>
-                        <Label className="pb-2" htmlFor="City">
+                        <Label className="pb-2" htmlFor="city">
                           City
                         </Label>
                         <Input
-                          id="City"
+                          id="city"
                           type="text"
                           value={field.state.value}
                           onChange={(e) => field.handleChange(e.target.value)}
@@ -316,14 +316,14 @@ export const CreateEmployeeForm = () => {
                     )}
                   />
                   <form.Field
-                    name="State"
+                    name="state"
                     validators={{
                       onChange: ({ value }) =>
                         !value && "You need to select a state",
                     }}
                     children={(field) => (
                       <div>
-                        <Label className="pb-2" htmlFor="State">
+                        <Label className="pb-2" htmlFor="state">
                           State
                         </Label>
                         <Select
@@ -369,7 +369,7 @@ export const CreateEmployeeForm = () => {
                     )}
                   />
                   <form.Field
-                    name="ZipCode"
+                    name="zipCode"
                     validators={{
                       onChange: ({ value }) =>
                         value &&
@@ -378,11 +378,11 @@ export const CreateEmployeeForm = () => {
                     }}
                     children={(field) => (
                       <div>
-                        <Label className="pb-2" htmlFor="ZipCode">
+                        <Label className="pb-2" htmlFor="zipCode">
                           Zip Code
                         </Label>
                         <Input
-                          id="ZipCode"
+                          id="zipCode"
                           pattern="[0-9]*"
                           type="text"
                           value={field.state.value}
@@ -402,14 +402,14 @@ export const CreateEmployeeForm = () => {
               </CardContent>
             </Card>
             <form.Field
-              name="Department"
+              name="department"
               validators={{
                 onChange: ({ value }) =>
                   !value && "You need to select a department",
               }}
               children={(field) => (
                 <div>
-                  <Label className="pb-2" htmlFor="Department">
+                  <Label className="pb-2" htmlFor="department">
                     Department
                   </Label>
                   <Select

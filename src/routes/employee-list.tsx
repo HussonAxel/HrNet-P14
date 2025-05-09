@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { columns } from "@/components/CurrentEmployeeTable/columns";
 import { DataTable } from "@/components/CurrentEmployeeTable/data-table";
 import useStore from "@/store/store";
+import { fakeData } from "@/data/fakeEmployeeData";
 
 export const Route = createFileRoute("/employee-list")({
   component: RouteComponent,
@@ -14,6 +15,7 @@ export function RouteComponent() {
     <>
       <div className="container mx-auto py-10">
         <DataTable columns={columns} data={employeeDataStore} />
+        {/* <DataTable columns={columns} data={fakeData} /> */}
       </div>
     </>
   );
